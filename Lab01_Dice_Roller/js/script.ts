@@ -17,10 +17,11 @@ button.textContent = "Roll the Dice";
 document.body.appendChild(div);
 document.body.appendChild(button);
 
-let rollDie : Function = (elem : Element, result : string) : boolean => {
-    (div as HTMLElement).textContent = result;
-    return true;
-}
+//let rollDie : Function = (elem : Element, result : string) : boolean => {
+//    (div as HTMLElement).textContent = result;
+//    return true;
+//}
+
 
 (button as HTMLElement).onclick = (event) => {
     rollDie(div, text);
@@ -31,8 +32,28 @@ class DieRoller {
     constructor(div : Element) {
         this.div = div;        
     }
+    
     rollDie (result : string) : boolean {
         (this.div as HTMLElement).textContent = result;
         return true;
     }
+}
+
+let Elements = {
+    'div' : document.createElement('div'),
+    'button' : document.createElement('button')
+}
+
+interface ElementSet {
+    'div' : Element,
+    'button' : Element
+}
+
+enum Results {
+    One = 1,
+    Two,
+    Three,
+    Four,
+    Five,
+    Six
 }
