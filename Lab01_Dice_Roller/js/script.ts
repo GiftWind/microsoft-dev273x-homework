@@ -25,3 +25,14 @@ let rollDie : Function = (elem : Element, result : string) : boolean => {
 (button as HTMLElement).onclick = (event) => {
     rollDie(div, text);
 }
+
+class DieRoller {
+    div : Element;
+    constructor(div : Element) {
+        this.div = div;        
+    }
+    rollDie (result : string) : boolean {
+        (this.div as HTMLElement).textContent = result;
+        return true;
+    }
+}
