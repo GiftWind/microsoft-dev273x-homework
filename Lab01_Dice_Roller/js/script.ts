@@ -5,15 +5,6 @@ let div : Element = document.createElement('div');
 let button : Element = document.createElement('button');
 button.textContent = "Roll the Dice";
 
-(div as HTMLElement).style.width = squareSize;
-(div as HTMLElement).style.height = squareSize;
-(div as HTMLElement).style.border = "4px solid black";
-
-(div as HTMLElement).style.textAlign = "center";
-(div as HTMLElement).style.fontSize = "2em";
-(div as HTMLElement).style.display = "table-cell";
-(div as HTMLElement).style.verticalAlign = "middle";
-
 document.body.appendChild(div);
 document.body.appendChild(button);
 
@@ -27,10 +18,18 @@ document.body.appendChild(button);
     rollDie(div, text);
 }
 
-class DieRoller {
+class Die {
     div : Element;
     constructor(div : Element) {
-        this.div = div;        
+        this.div = div;
+        (div as HTMLElement).style.width = squareSize;
+        (div as HTMLElement).style.height = squareSize;
+        (div as HTMLElement).style.border = "4px solid black";
+        
+        (div as HTMLElement).style.textAlign = "center";
+        (div as HTMLElement).style.fontSize = "2em";
+        (div as HTMLElement).style.display = "table-cell";
+        (div as HTMLElement).style.verticalAlign = "middle";        
     }
     
     rollDie (result : string) : boolean {
@@ -39,15 +38,6 @@ class DieRoller {
     }
 }
 
-let Elements = {
-    'div' : document.createElement('div'),
-    'button' : document.createElement('button')
-}
-
-interface ElementSet {
-    'div' : Element,
-    'button' : Element
-}
 
 enum Results {
     One = 1,
@@ -56,4 +46,20 @@ enum Results {
     Four,
     Five,
     Six
+}
+
+interface IDie {
+    'div' : Element 
+}
+
+let singleDie = {
+    'div' : document.createElement('div')
+}
+
+
+let diceSet : Array<IDie> = [];
+for (let index = 0; index < 4; index++) {
+   diceSet.push({
+        document.createElement('div');
+   }) 
 }
