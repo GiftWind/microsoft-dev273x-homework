@@ -5,7 +5,7 @@ let div : Element = document.createElement('div');
 let button : Element = document.createElement('button');
 button.textContent = "Roll the Dice";
 
-document.body.appendChild(div);
+//document.body.appendChild(div);
 document.body.appendChild(button);
 
 //let rollDie : Function = (elem : Element, result : string) : boolean => {
@@ -60,6 +60,12 @@ let singleDie = {
 let diceSet : Array<IDie> = [];
 for (let index = 0; index < 4; index++) {
    diceSet.push({
-        document.createElement('div');
+        'div' : document.createElement('div')
    }) 
 }
+
+diceSet.map( (elem, index) => {
+    let die = new Die(elem.div);
+    die.div.textContent = "FOO";
+    document.body.appendChild(die.div);
+} )
