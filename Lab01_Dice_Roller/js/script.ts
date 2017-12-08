@@ -55,15 +55,6 @@ class NumericDie extends Die {
     }
 }
 
-interface IDie {
-    'div' : Element 
-}
-
-let singleDie = {
-    'div' : document.createElement('div')
-}
-
-
 let divSet : Array<Element> = [];
 for (let index = 0; index < 4; index++) {
    divSet.push(document.createElement('div')) 
